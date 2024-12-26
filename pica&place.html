@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotic Arm Control</title>
+    <link rel="stylesheet" href="place.css">
+</head>
+<body>
+    <h1>Robotic Arm Control</h1>
+    <div class="control-grid">
+        <label for="arm_up_and_down_slider">Arm Up/Down Angle:</label>
+        <input type="range" id="arm_up_and_down_slider" min="0" max="180" value="90" oninput="updateAngle('arm_up_and_down', this.value)">
+        <span id="arm_up_and_down_value">90</span>
+
+        <label for="arm_forward_slider">Arm Forward Angle:</label>
+        <input type="range" id="arm_forward_slider" min="0" max="180" value="90" oninput="updateAngle('arm_forward', this.value)">
+        <span id="arm_forward_value">90</span>
+
+        <label for="arm_reverse_slider">Arm Reverse Angle:</label>
+        <input type="range" id="arm_reverse_slider" min="0" max="180" value="90" oninput="updateAngle('arm_reverse', this.value)">
+        <span id="arm_reverse_value">90</span>
+
+        <label for="gripper_open_slider">Gripper Open Angle:</label>
+        <input type="range" id="gripper_open_slider" min="0" max="180" value="90" oninput="updateAngle('gripper_open', this.value)">
+        <span id="gripper_open_value">90</span>
+
+        <label for="gripper_close_slider">Gripper Close Angle:</label>
+        <input type="range" id="gripper_close_slider" min="0" max="180" value="90" oninput="updateAngle('gripper_close', this.value)">
+        <span id="gripper_close_value">90</span>
+    </div>
+    <script>
+        function updateAngle(command, value) {
+            document.getElementById(`${command}_value`).innerText = value;
+            sendCommand(`${command}/${value}`);
+        }
+
+        function sendCommand(command) {
+            fetch(`/${command}`)
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

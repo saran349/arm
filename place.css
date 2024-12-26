@@ -1,0 +1,64 @@
+/* Apply box-sizing to all elements */
+* {
+    box-sizing: border-box;
+    color: rgba(218, 193, 193, 0.94);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: rgba(70, 43, 226, 0.516);
+    background-image: url(https://th.bing.com/th/id/OIP.clr4rM6RMEbFzdM79gS1RQHaIL?rs=1&pid=ImgDetMain);
+    background-size: cover; /* Adjust the size to cover the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+h1 {
+    color: #9214c4;
+}
+
+label {
+    font-weight: bolder;
+    margin-top: 10px;
+    display: block;
+    color: rgba(15, 54, 230, 0.905);
+}
+
+input[type="range"] {
+    width: 80%;
+    margin-top: 5px;
+}
+
+span {
+    display: inline-block;
+    width: 40px;
+    text-align: right;
+    font-weight: bold;
+    color: #2115d3df;
+}
+
+.control-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Light background for the control grid box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+@media (max-width: 600px) {
+    .control-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .control-grid {
+        grid-template-columns: 1fr;
+    }
+}
